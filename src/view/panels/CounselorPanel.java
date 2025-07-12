@@ -1,18 +1,10 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JPanel.java to edit this template
- */
-package Wellness_Management_System.View;
+package view.panels;
 
-/**
- *
- * @author MC
- */
+import view.components.ConfirmationDialog;
+
+
 public class CounselorPanel extends javax.swing.JPanel {
 
-    /**
-     * Creates new form CounselorPanel
-     */
     public CounselorPanel() {
         initComponents();
     }

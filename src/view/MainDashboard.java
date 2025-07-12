@@ -1,20 +1,16 @@
-
-
-package Wellness_Management_System.View;
+package view;
 
 import java.awt.Color;
 import javax.swing.*;
 import java.net.URL;
+import view.panels.AppointmentPanel;
+import view.panels.CounselorPanel;
+import view.panels.FeedbackPanel;
 
-/**
- *
- * @author MC
- */
+
 public class MainDashboard extends javax.swing.JFrame {
 
-    /**
-     * Creates new form MainDashboard
-     */
+
     public MainDashboard() {
         initComponents();
        
@@ -29,7 +25,7 @@ public class MainDashboard extends javax.swing.JFrame {
         
         
         
-                // Set icon image
+        // Set icon image
         URL iconURL = getClass().getResource("/resources/icons/app-icon.png");
         if (iconURL != null) {
             ImageIcon icon = new ImageIcon(iconURL);

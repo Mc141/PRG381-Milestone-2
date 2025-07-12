@@ -2,13 +2,14 @@
 import com.formdev.flatlaf.FlatDarkLaf;
 import com.formdev.flatlaf.FlatLaf;
 import javax.swing.UIManager;
-import Wellness_Management_System.View.MainDashboard;
+import view.MainDashboard;
 import javax.swing.JPopupMenu;
+import javax.swing.UnsupportedLookAndFeelException;
 
 public class Main {
     public static void main(String[] args) {
         try {
-            FlatLaf.registerCustomDefaultsSource("theme");
+            FlatLaf.registerCustomDefaultsSource("resources/themes");
             UIManager.setLookAndFeel(new FlatDarkLaf());
 
             FlatLaf.setUseNativeWindowDecorations(false);
@@ -16,7 +17,7 @@ public class Main {
             FlatLaf.updateUI();
 
             
-        } catch (Exception e) {
+        } catch (UnsupportedLookAndFeelException e) {
             System.err.println("Failed to set FlatLaf theme.");
         }
 

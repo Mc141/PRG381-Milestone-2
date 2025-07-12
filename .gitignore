@@ -1,2 +1,45 @@
-/build/
-/dist/
+# === Java build artifacts ===
+*.class
+*.jar
+*.war
+*.ear
+
+# === NetBeans specific ===
+nbproject/private/
+build/
+dist/
+nbbuild/
+nbdist/
+.nb-gradle/
+.netbeans/
+nbactions.xml
+nb-configuration.xml
+
+# === OS specific ===
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# === IntelliJ/IDEA ===
+.idea/
+*.iml
+*.ipr
+*.iws
+out/
+
+# === VS Code  ===
+.vscode/
+
+# === Logs and temporary files ===
+*.log
+*.tmp
+*.bak
+
+
+# === Custom settings, caches ===
+*.swp
+*.swo
+
+# === Compiled resources ===
+resources/themes/*.class
+resources/icons/*.class
