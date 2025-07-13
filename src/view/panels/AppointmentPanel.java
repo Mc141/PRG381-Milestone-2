@@ -21,7 +21,6 @@ public class AppointmentPanel extends javax.swing.JPanel {
         appointmentTable = new javax.swing.JTable();
         deleteButton = new javax.swing.JButton();
         updateButton = new javax.swing.JButton();
-        studentNameTextField = new javax.swing.JTextField();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         couselerComboBox = new javax.swing.JComboBox<>();
@@ -33,6 +32,7 @@ public class AppointmentPanel extends javax.swing.JPanel {
         scheduleComboBox = new javax.swing.JComboBox();
         bookButton = new javax.swing.JButton();
         clearButton = new javax.swing.JButton();
+        studentComboBox = new javax.swing.JComboBox<>();
 
         setPreferredSize(new java.awt.Dimension(644, 331));
 
@@ -84,12 +84,6 @@ public class AppointmentPanel extends javax.swing.JPanel {
 
         updateButton.setText("Update");
 
-        studentNameTextField.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                studentNameTextFieldActionPerformed(evt);
-            }
-        });
-
         jLabel1.setText("Student");
 
         jLabel2.setText("Counseler");
@@ -119,6 +113,8 @@ scheduleComboBox.addActionListener(new java.awt.event.ActionListener() {
 
     clearButton.setText("Clear");
 
+    studentComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "" }));
+
     javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
     this.setLayout(layout);
     layout.setHorizontalGroup(
@@ -135,12 +131,12 @@ scheduleComboBox.addActionListener(new java.awt.event.ActionListener() {
                         .addComponent(jLabel5, javax.swing.GroupLayout.Alignment.TRAILING))
                     .addGap(12, 12, 12)
                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                        .addComponent(studentNameTextField)
                         .addComponent(couselerComboBox, 0, 149, Short.MAX_VALUE)
                         .addComponent(datePicker, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(timePicker, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(scheduleComboBox, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(bookButton, javax.swing.GroupLayout.Alignment.TRAILING)))
+                        .addComponent(bookButton, javax.swing.GroupLayout.Alignment.TRAILING)
+                        .addComponent(studentComboBox, 0, 149, Short.MAX_VALUE)))
                 .addComponent(clearButton, javax.swing.GroupLayout.Alignment.TRAILING))
             .addGap(18, 18, 18)
             .addComponent(apointmentVerticalSeporator, javax.swing.GroupLayout.PREFERRED_SIZE, 11, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -166,10 +162,10 @@ scheduleComboBox.addActionListener(new java.awt.event.ActionListener() {
                         .addComponent(deleteButton)
                         .addComponent(updateButton)))
                 .addGroup(layout.createSequentialGroup()
-                    .addGap(33, 33, 33)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(studentNameTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(jLabel1))
+                    .addGap(30, 30, 30)
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                        .addComponent(jLabel1)
+                        .addComponent(studentComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGap(18, 18, 18)
                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(couselerComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -193,10 +189,6 @@ scheduleComboBox.addActionListener(new java.awt.event.ActionListener() {
             .addContainerGap(14, Short.MAX_VALUE))
     );
     }// </editor-fold>//GEN-END:initComponents
-
-    private void studentNameTextFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_studentNameTextFieldActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_studentNameTextFieldActionPerformed
 
     private void scheduleComboBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_scheduleComboBoxActionPerformed
         // TODO add your handling code here:
@@ -227,7 +219,7 @@ scheduleComboBox.addActionListener(new java.awt.event.ActionListener() {
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JComboBox scheduleComboBox;
-    private javax.swing.JTextField studentNameTextField;
+    private javax.swing.JComboBox<String> studentComboBox;
     private org.httprpc.sierra.TimePicker timePicker;
     private javax.swing.JButton updateButton;
     // End of variables declaration//GEN-END:variables

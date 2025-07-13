@@ -24,7 +24,7 @@ public class CounselorPanel extends javax.swing.JPanel {
         appointmentTable = new javax.swing.JTable();
         deleteButton = new javax.swing.JButton();
         updateButton = new javax.swing.JButton();
-        counselorNameTextField = new javax.swing.JTextField();
+        counselorLastNameTextField = new javax.swing.JTextField();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
@@ -32,6 +32,8 @@ public class CounselorPanel extends javax.swing.JPanel {
         specialisationTextField = new javax.swing.JTextField();
         availabilityComboBox = new javax.swing.JComboBox<>();
         clearButton = new javax.swing.JButton();
+        counselorFirstNameTextField = new javax.swing.JTextField();
+        jLabel4 = new javax.swing.JLabel();
 
         counselorPanel.setPreferredSize(new java.awt.Dimension(644, 331));
 
@@ -82,13 +84,13 @@ public class CounselorPanel extends javax.swing.JPanel {
 
         updateButton.setText("Update");
 
-        counselorNameTextField.addActionListener(new java.awt.event.ActionListener() {
+        counselorLastNameTextField.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                counselorNameTextFieldActionPerformed(evt);
+                counselorLastNameTextFieldActionPerformed(evt);
             }
         });
 
-        jLabel1.setText("Name");
+        jLabel1.setText("Last Name");
 
         jLabel2.setText("Specialisation");
 
@@ -100,6 +102,14 @@ public class CounselorPanel extends javax.swing.JPanel {
 
         clearButton.setText("Clear");
 
+        counselorFirstNameTextField.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                counselorFirstNameTextFieldActionPerformed(evt);
+            }
+        });
+
+        jLabel4.setText("First Name");
+
         javax.swing.GroupLayout counselorPanelLayout = new javax.swing.GroupLayout(counselorPanel);
         counselorPanel.setLayout(counselorPanelLayout);
         counselorPanelLayout.setHorizontalGroup(
@@ -107,18 +117,20 @@ public class CounselorPanel extends javax.swing.JPanel {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, counselorPanelLayout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(counselorPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(addButton, javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(clearButton, javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, counselorPanelLayout.createSequentialGroup()
-                        .addGroup(counselorPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel1, javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jLabel2, javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jLabel3, javax.swing.GroupLayout.Alignment.TRAILING))
+                        .addGroup(counselorPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jLabel4)
+                            .addComponent(jLabel1)
+                            .addComponent(jLabel2)
+                            .addComponent(jLabel3))
                         .addGap(12, 12, 12)
                         .addGroup(counselorPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(counselorNameTextField)
+                            .addComponent(counselorFirstNameTextField)
+                            .addComponent(counselorLastNameTextField)
                             .addComponent(specialisationTextField)
-                            .addComponent(availabilityComboBox, 0, 149, Short.MAX_VALUE)))
-                    .addComponent(addButton, javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(clearButton, javax.swing.GroupLayout.Alignment.TRAILING))
+                            .addComponent(availabilityComboBox, 0, 149, Short.MAX_VALUE))))
                 .addGap(18, 18, 18)
                 .addComponent(counselorVerticalSeporator, javax.swing.GroupLayout.PREFERRED_SIZE, 11, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -144,7 +156,11 @@ public class CounselorPanel extends javax.swing.JPanel {
             .addGroup(counselorPanelLayout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(counselorPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(counselorNameTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(counselorFirstNameTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel4))
+                .addGap(18, 18, 18)
+                .addGroup(counselorPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(counselorLastNameTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel1))
                 .addGap(18, 18, 18)
                 .addGroup(counselorPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -183,9 +199,9 @@ public class CounselorPanel extends javax.swing.JPanel {
         );
     }// </editor-fold>//GEN-END:initComponents
 
-    private void counselorNameTextFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_counselorNameTextFieldActionPerformed
+    private void counselorLastNameTextFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_counselorLastNameTextFieldActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_counselorNameTextFieldActionPerformed
+    }//GEN-LAST:event_counselorLastNameTextFieldActionPerformed
 
     private void deleteButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_deleteButtonActionPerformed
         String type = "counseler";
@@ -196,13 +212,18 @@ public class CounselorPanel extends javax.swing.JPanel {
             }
     }//GEN-LAST:event_deleteButtonActionPerformed
 
+    private void counselorFirstNameTextFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_counselorFirstNameTextFieldActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_counselorFirstNameTextFieldActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton addButton;
     private javax.swing.JTable appointmentTable;
     private javax.swing.JComboBox<String> availabilityComboBox;
     private javax.swing.JButton clearButton;
-    private javax.swing.JTextField counselorNameTextField;
+    private javax.swing.JTextField counselorFirstNameTextField;
+    private javax.swing.JTextField counselorLastNameTextField;
     private javax.swing.JPanel counselorPanel;
     private javax.swing.JScrollPane counselorScrollPane;
     private javax.swing.JSeparator counselorVerticalSeporator;
@@ -210,6 +231,7 @@ public class CounselorPanel extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
     private javax.swing.JTextField specialisationTextField;
     private javax.swing.JButton updateButton;
     // End of variables declaration//GEN-END:variables

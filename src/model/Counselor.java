@@ -1,53 +1,21 @@
 package model;
 
-public class Counselor extends BaseModel {
-    private int counselorId;
-    private String name;
-    private String specialization;
+public class Counselor extends Person {
+    private String specialisation;
     private boolean available;
 
-    public Counselor() {}
-
-    public Counselor(int counselorId, String name, String specialization, boolean available) {
-        this.counselorId = counselorId;
-        this.name = name;
-        this.specialization = specialization;
+    public Counselor(int id, String firstName, String lastName, String specialisation, boolean available) {
+        super(id, firstName, lastName);
+        this.specialisation = specialisation;
         this.available = available;
     }
 
-    public Counselor(String name, String specialization, boolean available) {
-        this.name = name;
-        this.specialization = specialization;
-        this.available = available;
+    public String getSpecialisation() {
+        return specialisation;
     }
 
-    @Override
-    public int getId() {
-        return counselorId;
-    }
-
-    public int getCounselorId() {
-        return counselorId;
-    }
-
-    public void setCounselorId(int counselorId) {
-        this.counselorId = counselorId;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public String getSpecialization() {
-        return specialization;
-    }
-
-    public void setSpecialization(String specialization) {
-        this.specialization = specialization;
+    public void setSpecialisation(String specialisation) {
+        this.specialisation = specialisation;
     }
 
     public boolean isAvailable() {
@@ -56,15 +24,5 @@ public class Counselor extends BaseModel {
 
     public void setAvailable(boolean available) {
         this.available = available;
-    }
-
-    @Override
-    public String toString() {
-        return "Counselor{" +
-                "counselorId=" + counselorId +
-                ", name='" + name + '\'' +
-                ", specialization='" + specialization + '\'' +
-                ", available=" + available +
-                '}';
     }
 }

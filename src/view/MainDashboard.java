@@ -4,6 +4,7 @@ import java.awt.Color;
 import javax.swing.*;
 import java.net.URL;
 import view.panels.AppointmentPanel;
+import view.panels.StudentPanel;
 import view.panels.CounselorPanel;
 import view.panels.FeedbackPanel;
 
@@ -16,8 +17,10 @@ public class MainDashboard extends javax.swing.JFrame {
        
         
         tabbedPane.add("Appointments", new AppointmentPanel());
+        tabbedPane.add("Students", new StudentPanel());
         tabbedPane.add("Counselors", new CounselorPanel());
         tabbedPane.add("Feedback", new FeedbackPanel());
+        
         
         tabbedPane.setBorder(BorderFactory.createMatteBorder(2, 0, 0, 0, new Color(88, 90, 92)));
         

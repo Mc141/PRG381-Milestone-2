@@ -24,7 +24,6 @@ public class FeedbackPanel extends javax.swing.JPanel {
         feedbackTable = new javax.swing.JTable();
         deleteButton = new javax.swing.JButton();
         updateButton = new javax.swing.JButton();
-        studentNameTextField = new javax.swing.JTextField();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
@@ -33,6 +32,11 @@ public class FeedbackPanel extends javax.swing.JPanel {
         clearButton = new javax.swing.JButton();
         commentScollPane = new javax.swing.JScrollPane();
         commentTextPane = new javax.swing.JTextPane();
+        jLabel4 = new javax.swing.JLabel();
+        jLabel5 = new javax.swing.JLabel();
+        appointmentComboBox = new javax.swing.JComboBox<>();
+        studentTextField = new javax.swing.JTextField();
+        counselerTextField = new javax.swing.JTextField();
 
         feedbackPanel.setPreferredSize(new java.awt.Dimension(644, 331));
 
@@ -82,13 +86,7 @@ public class FeedbackPanel extends javax.swing.JPanel {
 
         updateButton.setText("Update");
 
-        studentNameTextField.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                studentNameTextFieldActionPerformed(evt);
-            }
-        });
-
-        jLabel1.setText("Name");
+        jLabel1.setText("Counseler");
 
         jLabel2.setText("Rating");
 
@@ -102,6 +100,12 @@ public class FeedbackPanel extends javax.swing.JPanel {
 
         commentScollPane.setViewportView(commentTextPane);
 
+        jLabel4.setText("Student");
+
+        jLabel5.setText("Appointment");
+
+        appointmentComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "", "1", "2", "3", "4", "5" }));
+
         javax.swing.GroupLayout feedbackPanelLayout = new javax.swing.GroupLayout(feedbackPanel);
         feedbackPanel.setLayout(feedbackPanelLayout);
         feedbackPanelLayout.setHorizontalGroup(
@@ -110,17 +114,24 @@ public class FeedbackPanel extends javax.swing.JPanel {
                 .addContainerGap()
                 .addGroup(feedbackPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, feedbackPanelLayout.createSequentialGroup()
+                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addGroup(feedbackPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(submitButton, javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(clearButton, javax.swing.GroupLayout.Alignment.TRAILING)))
+                    .addGroup(feedbackPanelLayout.createSequentialGroup()
                         .addGroup(feedbackPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel1, javax.swing.GroupLayout.Alignment.TRAILING)
                             .addComponent(jLabel2, javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jLabel3, javax.swing.GroupLayout.Alignment.TRAILING))
+                            .addComponent(jLabel3, javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jLabel4, javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jLabel5, javax.swing.GroupLayout.Alignment.TRAILING))
                         .addGap(12, 12, 12)
                         .addGroup(feedbackPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(studentNameTextField)
-                            .addComponent(ratingComboBox, 0, 155, Short.MAX_VALUE)
-                            .addComponent(commentScollPane)))
-                    .addComponent(submitButton, javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(clearButton, javax.swing.GroupLayout.Alignment.TRAILING))
+                            .addComponent(appointmentComboBox, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(ratingComboBox, 0, 137, Short.MAX_VALUE)
+                            .addComponent(commentScollPane)
+                            .addComponent(studentTextField)
+                            .addComponent(counselerTextField, javax.swing.GroupLayout.Alignment.TRAILING))))
                 .addGap(18, 18, 18)
                 .addComponent(feedbackVerticalSeporator, javax.swing.GroupLayout.PREFERRED_SIZE, 11, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -146,8 +157,16 @@ public class FeedbackPanel extends javax.swing.JPanel {
             .addGroup(feedbackPanelLayout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(feedbackPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(studentNameTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel1))
+                    .addComponent(jLabel5)
+                    .addComponent(appointmentComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(15, 15, 15)
+                .addGroup(feedbackPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel4)
+                    .addComponent(studentTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(feedbackPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel1)
+                    .addComponent(counselerTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(feedbackPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel2)
@@ -185,10 +204,6 @@ public class FeedbackPanel extends javax.swing.JPanel {
         );
     }// </editor-fold>//GEN-END:initComponents
 
-    private void studentNameTextFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_studentNameTextFieldActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_studentNameTextFieldActionPerformed
-
     private void deleteButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_deleteButtonActionPerformed
         String type = "feedback entry";
         String details = "Good"; // Read from selected row
@@ -200,9 +215,11 @@ public class FeedbackPanel extends javax.swing.JPanel {
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JComboBox<String> appointmentComboBox;
     private javax.swing.JButton clearButton;
     private javax.swing.JScrollPane commentScollPane;
     private javax.swing.JTextPane commentTextPane;
+    private javax.swing.JTextField counselerTextField;
     private javax.swing.JButton deleteButton;
     private javax.swing.JPanel feedbackPanel;
     private javax.swing.JScrollPane feedbackScrollPane;
@@ -211,8 +228,10 @@ public class FeedbackPanel extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
     private javax.swing.JComboBox<String> ratingComboBox;
-    private javax.swing.JTextField studentNameTextField;
+    private javax.swing.JTextField studentTextField;
     private javax.swing.JButton submitButton;
     private javax.swing.JButton updateButton;
     // End of variables declaration//GEN-END:variables

@@ -3,26 +3,16 @@ package model;
 import java.time.LocalDate;
 import java.time.LocalTime;
 
-public class Appointment extends BaseModel {
-    private int appointmentId;
-    private String student;
-    private String counselor;
+public class Appointment implements IIdentifiable {
+    private int id;
+    private Student student;
+    private Counselor counselor;
     private LocalDate date;
     private LocalTime time;
     private String status;
 
-    public Appointment() {}
-
-    public Appointment(int appointmentId, String student, String counselor, LocalDate date, LocalTime time, String status) {
-        this.appointmentId = appointmentId;
-        this.student = student;
-        this.counselor = counselor;
-        this.date = date;
-        this.time = time;
-        this.status = status;
-    }
-
-    public Appointment(String student, String counselor, LocalDate date, LocalTime time, String status) {
+    public Appointment(int id, Student student, Counselor counselor, LocalDate date, LocalTime time, String status) {
+        this.id = id;
         this.student = student;
         this.counselor = counselor;
         this.date = date;
@@ -32,66 +22,46 @@ public class Appointment extends BaseModel {
 
     @Override
     public int getId() {
-        return appointmentId;
+        return id;
     }
 
-    public int getAppointmentId() {
-        return appointmentId;
-    }
-
-    public void setAppointmentId(int appointmentId) {
-        this.appointmentId = appointmentId;
-    }
-
-    public String getStudent() {
+    public Student getStudent() {
         return student;
     }
 
-    public void setStudent(String student) {
-        this.student = student;
-    }
-
-    public String getCounselor() {
+    public Counselor getCounselor() {
         return counselor;
-    }
-
-    public void setCounselor(String counselor) {
-        this.counselor = counselor;
     }
 
     public LocalDate getDate() {
         return date;
     }
 
-    public void setDate(LocalDate date) {
-        this.date = date;
-    }
-
     public LocalTime getTime() {
         return time;
-    }
-
-    public void setTime(LocalTime time) {
-        this.time = time;
     }
 
     public String getStatus() {
         return status;
     }
 
-    public void setStatus(String status) {
-        this.status = status;
+    public void setStudent(Student student) {
+        this.student = student;
     }
 
-    @Override
-    public String toString() {
-        return "Appointment{" +
-                "appointmentId=" + appointmentId +
-                ", student='" + student + '\'' +
-                ", counselor='" + counselor + '\'' +
-                ", date=" + date +
-                ", time=" + time +
-                ", status='" + status + '\'' +
-                '}';
+    public void setCounselor(Counselor counselor) {
+        this.counselor = counselor;
+    }
+
+    public void setDate(LocalDate date) {
+        this.date = date;
+    }
+
+    public void setTime(LocalTime time) {
+        this.time = time;
+    }
+
+    public void setStatus(String status) {
+        this.status = status;
     }
 }

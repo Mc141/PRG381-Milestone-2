@@ -1,70 +1,64 @@
 package model;
 
-public class Feedback extends BaseModel {
-    private int feedbackId;
-    private String student;
+public class Feedback implements IIdentifiable {
+    private int id;
+    private Student student;
+    private Counselor counselor;
+    private Appointment appointment;
     private int rating;
     private String comments;
 
-    public Feedback() {}
-
-    public Feedback(int feedbackId, String student, int rating, String comments) {
-        this.feedbackId = feedbackId;
+    public Feedback(int id, Student student, Counselor counselor, Appointment appointment, int rating, String comments) {
+        this.id = id;
         this.student = student;
-        this.rating = rating;
-        this.comments = comments;
-    }
-
-    public Feedback(String student, int rating, String comments) {
-        this.student = student;
+        this.counselor = counselor;
+        this.appointment = appointment;
         this.rating = rating;
         this.comments = comments;
     }
 
     @Override
     public int getId() {
-        return feedbackId;
+        return id;
     }
 
-    public int getFeedbackId() {
-        return feedbackId;
-    }
-
-    public void setFeedbackId(int feedbackId) {
-        this.feedbackId = feedbackId;
-    }
-
-    public String getStudent() {
+    public Student getStudent() {
         return student;
     }
 
-    public void setStudent(String student) {
-        this.student = student;
+    public Counselor getCounselor() {
+        return counselor;
+    }
+
+    public Appointment getAppointment() {
+        return appointment;
     }
 
     public int getRating() {
         return rating;
     }
 
-    public void setRating(int rating) {
-        this.rating = rating;
-    }
-
     public String getComments() {
         return comments;
     }
 
-    public void setComments(String comments) {
-        this.comments = comments;
+    public void setStudent(Student student) {
+        this.student = student;
     }
 
-    @Override
-    public String toString() {
-        return "Feedback{" +
-                "feedbackId=" + feedbackId +
-                ", student='" + student + '\'' +
-                ", rating=" + rating +
-                ", comments='" + comments + '\'' +
-                '}';
+    public void setCounselor(Counselor counselor) {
+        this.counselor = counselor;
+    }
+
+    public void setAppointment(Appointment appointment) {
+        this.appointment = appointment;
+    }
+
+    public void setRating(int rating) {
+        this.rating = rating;
+    }
+
+    public void setComments(String comments) {
+        this.comments = comments;
     }
 }
