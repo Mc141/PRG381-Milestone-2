@@ -5,10 +5,15 @@ import javax.swing.UIManager;
 import view.MainDashboard;
 import javax.swing.JPopupMenu;
 import javax.swing.UnsupportedLookAndFeelException;
+import utils.AbstractDBConnection;
+import utils.DBConnection;
 
 public class Main {
     public static void main(String[] args) {
         try {
+            AbstractDBConnection connection = new DBConnection();
+            connection.connect();
+            
             FlatLaf.registerCustomDefaultsSource("resources/themes");
             UIManager.setLookAndFeel(new FlatDarkLaf());
 
