@@ -3,9 +3,10 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/MC/Desktop/Code/Java/PRG381_Milestone_2/src/utils/DatabaseInitializer.java</file>
-            <file>file:/C:/Users/MC/Desktop/Code/Java/PRG381_Milestone_2/src/Main.java</file>
-            <file>file:/C:/Users/MC/Desktop/Code/Java/PRG381_Milestone_2/src/utils/Validator.java</file>
+            <file>file:/C:/Users/MC/Desktop/Code/Java/PRG381_Milestone_2/src/view/panels/AppointmentPanel.java</file>
+            <file>file:/C:/Users/MC/Desktop/Code/Java/PRG381_Milestone_2/src/view/panels/StudentPanel.java</file>
+            <file>file:/C:/Users/MC/Desktop/Code/Java/PRG381_Milestone_2/src/view/panels/CounselorPanel.java</file>
+            <file>file:/C:/Users/MC/Desktop/Code/Java/PRG381_Milestone_2/src/view/panels/FeedbackPanel.java</file>
         </group>
     </open-files>
 </project-private>
