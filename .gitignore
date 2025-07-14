@@ -1,7 +1,5 @@
 # === Java build artifacts ===
 *.class
-*.jar
-*.war
 *.ear
 
 # === NetBeans specific ===
