@@ -1,23 +1,25 @@
 package view.panels;
 
+import javax.swing.table.DefaultTableModel;
 import view.components.ConfirmationDialog;
+import java.sql.Connection;
+import java.util.ArrayList;
+import model.Student;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import utils.Validator;
+import controller.StudentController;
+import java.util.List;
 
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JPanel.java to edit this template
- */
 
-/**
- *
- * @author MC
- */
 public class StudentPanel extends javax.swing.JPanel {
 
-    /**
-     * Creates new form StudentPanel
-     */
-    public StudentPanel() {
+    private StudentController controller;
+
+    public StudentPanel(Connection connection) {
         initComponents();
+        this.controller = new StudentController(this, connection);
+        controller.loadStudentsIntoTable();
     }
 
     /**
@@ -33,7 +35,7 @@ public class StudentPanel extends javax.swing.JPanel {
         studentPanel = new javax.swing.JPanel();
         studentVerticalSeporator = new javax.swing.JSeparator();
         studentScrollPane = new javax.swing.JScrollPane();
-        appointmentTable = new javax.swing.JTable();
+        studentTable = new javax.swing.JTable();
         deleteButton = new javax.swing.JButton();
         updateButton = new javax.swing.JButton();
         studentLastNameTextField = new javax.swing.JTextField();
@@ -49,12 +51,9 @@ public class StudentPanel extends javax.swing.JPanel {
         studentVerticalSeporator.setOrientation(javax.swing.SwingConstants.VERTICAL);
         studentVerticalSeporator.setName(""); // NOI18N
 
-        appointmentTable.setModel(new javax.swing.table.DefaultTableModel(
+        studentTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null},
-                {null, null},
-                {null, null},
-                {null, null}
+
             },
             new String [] {
                 "ID", "Name"
@@ -75,7 +74,14 @@ public class StudentPanel extends javax.swing.JPanel {
                 return canEdit [columnIndex];
             }
         });
-        studentScrollPane.setViewportView(appointmentTable);
+        studentTable.setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
+        studentTable.setShowGrid(true);
+        studentTable.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                studentTableMouseClicked(evt);
+            }
+        });
+        studentScrollPane.setViewportView(studentTable);
 
         deleteButton.setText("Delete");
         deleteButton.addActionListener(new java.awt.event.ActionListener() {
@@ -85,6 +91,11 @@ public class StudentPanel extends javax.swing.JPanel {
         });
 
         updateButton.setText("Update");
+        updateButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                updateButtonActionPerformed(evt);
+            }
+        });
 
         studentLastNameTextField.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -102,6 +113,11 @@ public class StudentPanel extends javax.swing.JPanel {
         });
 
         clearButton.setText("Clear");
+        clearButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                clearButtonActionPerformed(evt);
+            }
+        });
 
         studentFirstNameTextField.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -210,12 +226,7 @@ public class StudentPanel extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void deleteButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_deleteButtonActionPerformed
-        String type = "student";
-        String details = "Dummy data"; // Read from selected row
-
-        if (ConfirmationDialog.confirmDelete(this, type, details)) {
-            // Remove from db and clear table
-        }
+        controller.handleDeleteStudent();
     }//GEN-LAST:event_deleteButtonActionPerformed
 
     private void studentLastNameTextFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_studentLastNameTextFieldActionPerformed
@@ -227,13 +238,59 @@ public class StudentPanel extends javax.swing.JPanel {
     }//GEN-LAST:event_studentFirstNameTextFieldActionPerformed
 
     private void addButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addButtonActionPerformed
-        // TODO add your handling code here:
+        controller.handleAddStudent();
     }//GEN-LAST:event_addButtonActionPerformed
+
+    private void studentTableMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_studentTableMouseClicked
+        controller.handleStudentSelection();
+    }//GEN-LAST:event_studentTableMouseClicked
+
+    private void clearButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_clearButtonActionPerformed
+        controller.handleClearInputs();
+    }//GEN-LAST:event_clearButtonActionPerformed
+
+    private void updateButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_updateButtonActionPerformed
+        controller.handleUpdateStudent();
+    }//GEN-LAST:event_updateButtonActionPerformed
+
+public String[] getInputs() {
+        return new String[] {studentFirstNameTextField.getText(), studentLastNameTextField.getText()};
+    }
+
+    public int getSelectedStudentIndex() {
+        return studentTable.getSelectedRow();
+    }
+
+    public void setInputs(String firstName, String lastName) {
+        studentFirstNameTextField.setText(firstName);
+        studentLastNameTextField.setText(lastName);
+    }
+
+    public void clearInputs() {
+        studentFirstNameTextField.setText("");
+        studentLastNameTextField.setText("");
+    }
+
+    public void loadStudentTable(List<Student> students) {
+        DefaultTableModel model = (DefaultTableModel) studentTable.getModel();
+        model.setRowCount(0);
+        for (Student s : students) {
+            model.addRow(new Object[] {s.getId(), s.getFullName()});
+        }
+    }
+
+    public void showError(String message) {
+        javax.swing.JOptionPane.showMessageDialog(this, message, "Error", javax.swing.JOptionPane.ERROR_MESSAGE);
+    }
+
+    public void showInfo(String message) {
+        javax.swing.JOptionPane.showMessageDialog(this, message, "Information", javax.swing.JOptionPane.INFORMATION_MESSAGE);
+    }
+
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton addButton;
-    private javax.swing.JTable appointmentTable;
     private javax.swing.JButton clearButton;
     private javax.swing.JButton deleteButton;
     private javax.swing.JLabel jLabel1;
@@ -243,6 +300,7 @@ public class StudentPanel extends javax.swing.JPanel {
     private javax.swing.JTextField studentLastNameTextField;
     private javax.swing.JPanel studentPanel;
     private javax.swing.JScrollPane studentScrollPane;
+    private javax.swing.JTable studentTable;
     private javax.swing.JSeparator studentVerticalSeporator;
     private javax.swing.JButton updateButton;
     // End of variables declaration//GEN-END:variables

@@ -1,5 +1,5 @@
 
-package Wellness_Management_System.Controller;
+package controller;
 
 
 public class AppointmentController {

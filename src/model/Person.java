@@ -11,9 +11,15 @@ public abstract class Person implements IIdentifiable {
         this.lastName = lastName;
     }
 
+    public Person() {}
+    
     @Override
     public int getId() {
         return id;
+    }
+    
+        public void setId(int id) {
+        this.id = id;
     }
 
     public String getFirstName() {

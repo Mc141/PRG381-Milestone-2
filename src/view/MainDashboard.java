@@ -1,5 +1,6 @@
 package view;
 
+import dao.StudentDAO;
 import java.awt.Color;
 import javax.swing.*;
 import java.net.URL;
@@ -7,17 +8,19 @@ import view.panels.AppointmentPanel;
 import view.panels.StudentPanel;
 import view.panels.CounselorPanel;
 import view.panels.FeedbackPanel;
+import java.sql.Connection;
 
 
 public class MainDashboard extends javax.swing.JFrame {
 
 
-    public MainDashboard() {
+    public MainDashboard(Connection connection) {
         initComponents();
-       
+        
+
         
         tabbedPane.add("Appointments", new AppointmentPanel());
-        tabbedPane.add("Students", new StudentPanel());
+        tabbedPane.add("Students", new StudentPanel(connection));
         tabbedPane.add("Counselors", new CounselorPanel());
         tabbedPane.add("Feedback", new FeedbackPanel());
         

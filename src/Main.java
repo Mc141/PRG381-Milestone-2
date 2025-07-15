@@ -8,12 +8,15 @@ import javax.swing.UnsupportedLookAndFeelException;
 import utils.AbstractDBConnection;
 import utils.DBConnection;
 import utils.DatabaseInitializer;
+import java.sql.Connection;
 
 public class Main {
     public static void main(String[] args) {
+        Connection connection = null;
         try {
-            AbstractDBConnection connection = new DBConnection();
-            connection.connect();
+            AbstractDBConnection db = new DBConnection();
+            db.connect();
+            connection = db.getConnection();
             
             // DatabaseInitializer.initialise(connection); // Ran once for db setup
             
@@ -28,9 +31,10 @@ public class Main {
         } catch (UnsupportedLookAndFeelException e) {
             System.err.println("Failed to set FlatLaf theme.");
         }
-
+        
+        Connection finalConnection = connection; // Required because it's used inside a lambda
         java.awt.EventQueue.invokeLater(() -> {
-            new MainDashboard().setVisible(true);
+            new MainDashboard(finalConnection).setVisible(true);
         });
     }
 }
