@@ -148,7 +148,6 @@ public class AppointmentController {
             Appointment updated = new Appointment(existing.getId(), studentId, counselorId, date, time, status);
             //checks status of appointment
             updated = checkStatus(existing, updated);
-            System.out.println("Sstatus after updating is " + updated.getStatus());
             appointmentDAO.updateAppointment(updated);
             loadAppointmentsIntoTable();
             view.clearInputs();
