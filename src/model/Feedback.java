@@ -2,60 +2,66 @@ package model;
 
 public class Feedback implements IIdentifiable {
     private int id;
-    private Student student;
-    private Counselor counselor;
-    private Appointment appointment;
+    private int studentId;
+    private int counselorId;
+    private int appointmentId;
     private int rating;
     private String comments;
 
-    public Feedback(int id, Student student, Counselor counselor, Appointment appointment, int rating, String comments) {
+    public Feedback(int id, int studentId, int counselorId, int appointmentId, int rating, String comments) {
         this.id = id;
-        this.student = student;
-        this.counselor = counselor;
-        this.appointment = appointment;
+        this.studentId = studentId;
+        this.counselorId = counselorId;
+        this.appointmentId = appointmentId;
         this.rating = rating;
         this.comments = comments;
     }
+
+    public Feedback() {}
 
     @Override
     public int getId() {
         return id;
     }
 
-    public Student getStudent() {
-        return student;
+    public void setId(int id) {
+        this.id = id;
     }
 
-    public Counselor getCounselor() {
-        return counselor;
+    public int getStudentId() {
+        return studentId;
     }
 
-    public Appointment getAppointment() {
-        return appointment;
+    public void setStudentId(int studentId) {
+        this.studentId = studentId;
+    }
+
+    public int getCounselorId() {
+        return counselorId;
+    }
+
+    public void setCounselorId(int counselorId) {
+        this.counselorId = counselorId;
+    }
+
+    public int getAppointmentId() {
+        return appointmentId;
+    }
+
+    public void setAppointmentId(int appointmentId) {
+        this.appointmentId = appointmentId;
     }
 
     public int getRating() {
         return rating;
     }
 
-    public String getComments() {
-        return comments;
-    }
-
-    public void setStudent(Student student) {
-        this.student = student;
-    }
-
-    public void setCounselor(Counselor counselor) {
-        this.counselor = counselor;
-    }
-
-    public void setAppointment(Appointment appointment) {
-        this.appointment = appointment;
-    }
-
     public void setRating(int rating) {
         this.rating = rating;
+    }
+
+    public String getComments() {
+        return comments;
     }
 
     public void setComments(String comments) {

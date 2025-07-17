@@ -21,8 +21,8 @@ public class MainDashboard extends javax.swing.JFrame {
         
         tabbedPane.add("Appointments", new AppointmentPanel());
         tabbedPane.add("Students", new StudentPanel(connection));
-        tabbedPane.add("Counselors", new CounselorPanel());
-        tabbedPane.add("Feedback", new FeedbackPanel());
+        tabbedPane.add("Counselors", new CounselorPanel(connection));
+        tabbedPane.add("Feedback", new FeedbackPanel(connection));
         
         
         tabbedPane.setBorder(BorderFactory.createMatteBorder(2, 0, 0, 0, new Color(88, 90, 92)));
