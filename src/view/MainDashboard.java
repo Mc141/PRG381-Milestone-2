@@ -19,7 +19,7 @@ public class MainDashboard extends javax.swing.JFrame {
         
 
         
-        tabbedPane.add("Appointments", new AppointmentPanel());
+        tabbedPane.add("Appointments", new AppointmentPanel(connection));
         tabbedPane.add("Students", new StudentPanel(connection));
         tabbedPane.add("Counselors", new CounselorPanel(connection));
         tabbedPane.add("Feedback", new FeedbackPanel(connection));
@@ -64,9 +64,7 @@ public class MainDashboard extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addComponent(tabbedPane, javax.swing.GroupLayout.PREFERRED_SIZE, 777, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
+            .addComponent(tabbedPane, javax.swing.GroupLayout.DEFAULT_SIZE, 901, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
