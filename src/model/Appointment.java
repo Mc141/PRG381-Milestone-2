@@ -5,16 +5,22 @@ import java.time.LocalTime;
 
 public class Appointment implements IIdentifiable {
     private int id;
-    private Student student;
-    private Counselor counselor;
+    private int student_id;
+    private int counselor_id;
     private LocalDate date;
     private LocalTime time;
     private String status;
 
-    public Appointment(int id, Student student, Counselor counselor, LocalDate date, LocalTime time, String status) {
+    // These are for display purposes only
+    private String studentName;
+    private String counselorName;
+
+    public Appointment() {}
+
+    public Appointment(int id, int student_id, int counselor_id, LocalDate date, LocalTime time, String status) {
         this.id = id;
-        this.student = student;
-        this.counselor = counselor;
+        this.student_id = student_id;
+        this.counselor_id = counselor_id;
         this.date = date;
         this.time = time;
         this.status = status;
@@ -25,43 +31,63 @@ public class Appointment implements IIdentifiable {
         return id;
     }
 
-    public Student getStudent() {
-        return student;
+    public void setId(int id) {
+        this.id = id;
     }
 
-    public Counselor getCounselor() {
-        return counselor;
+    public int getStudentId() {
+        return student_id;
+    }
+
+    public void setStudentId(int student_id) {
+        this.student_id = student_id;
+    }
+
+    public int getCounselorId() {
+        return counselor_id;
+    }
+
+    public void setCounselorId(int counselor_id) {
+        this.counselor_id = counselor_id;
     }
 
     public LocalDate getDate() {
         return date;
     }
 
-    public LocalTime getTime() {
-        return time;
-    }
-
-    public String getStatus() {
-        return status;
-    }
-
-    public void setStudent(Student student) {
-        this.student = student;
-    }
-
-    public void setCounselor(Counselor counselor) {
-        this.counselor = counselor;
-    }
-
     public void setDate(LocalDate date) {
         this.date = date;
+    }
+
+    public LocalTime getTime() {
+        return time;
     }
 
     public void setTime(LocalTime time) {
         this.time = time;
     }
 
+    public String getStatus() {
+        return status;
+    }
+
     public void setStatus(String status) {
         this.status = status;
+    }
+
+    public String getStudentName() {
+        return studentName;
+    }
+
+    public void setStudentName(String studentName) {
+        this.studentName = studentName;
+    }
+
+    public String getCounselorName() {
+        return counselorName;
+    }
+
+    public void setCounselorName(String counselorName) {
+        this.counselorName = counselorName;
     }
 }
