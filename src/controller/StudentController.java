@@ -84,6 +84,7 @@ public class StudentController {
             studentDao.updateStudent(student);
             loadStudentsIntoTable();
             view.clearInputs();
+            view.showInfo("student updated");
         } catch (Exception e) {
             LOGGER.log(Level.SEVERE, "Failed to update student", e);
             view.showError("An error occurred while updating the student.");

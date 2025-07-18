@@ -79,6 +79,7 @@ public class FeedbackPanel extends javax.swing.JPanel {
             }
         });
         feedbackTable.setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
+        feedbackTable.setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
         feedbackTable.setShowGrid(true);
         feedbackTable.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {

@@ -1,6 +1,7 @@
 package controller;
 
 import dao.CounselorDAO;
+import static java.lang.String.format;
 import model.Counselor;
 import view.panels.CounselorPanel;
 import view.components.ConfirmationDialog;
@@ -113,7 +114,12 @@ public class CounselorController {
         Counselor counselor = counselorDao.getCounselorList().get(selectedIndex);
          boolean success = counselorDao.deleteCounselor(counselor);
 
-            if (success) {
+  
+         String type = "Counselor";
+         String details = String.format(counselor.getFullName());
+         
+         
+            if (success && ConfirmationDialog.confirmDelete(view, type, details)) {
                 loadCounselorsIntoTable();
                 view.clearInputs();
                 view.showInfo("Counselor deleted successfully.");

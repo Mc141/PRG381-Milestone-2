@@ -2,6 +2,7 @@ package view;
 
 import dao.StudentDAO;
 import java.awt.Color;
+import java.awt.Component;
 import javax.swing.*;
 import java.net.URL;
 import view.panels.AppointmentPanel;
@@ -9,6 +10,8 @@ import view.panels.StudentPanel;
 import view.panels.CounselorPanel;
 import view.panels.FeedbackPanel;
 import java.sql.Connection;
+import javax.swing.event.ChangeEvent;
+import javax.swing.event.ChangeListener;
 
 
 public class MainDashboard extends javax.swing.JFrame {
@@ -28,7 +31,23 @@ public class MainDashboard extends javax.swing.JFrame {
         tabbedPane.setBorder(BorderFactory.createMatteBorder(2, 0, 0, 0, new Color(88, 90, 92)));
         
         
+                
+        // Refresh the student and counselor combobox everytime the appointment tab is opened
+        tabbedPane.addChangeListener(new ChangeListener() {
+        public void stateChanged(ChangeEvent e) {
+        JTabbedPane sourceTabbedPane = (JTabbedPane) e.getSource();
+        int index = sourceTabbedPane.getSelectedIndex();
+        Component selected = sourceTabbedPane.getComponentAt(index);
+
+        if (selected instanceof AppointmentPanel) {
+            ((AppointmentPanel) selected).refreshComboBoxes();
+        }
         
+        if (selected instanceof FeedbackPanel) {
+            ((FeedbackPanel) selected).refreshComboBoxes();
+        }
+    }
+});
         
         
         // Set icon image
